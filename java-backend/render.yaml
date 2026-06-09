@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: book-backend
+    runtime: docker
+    dockerfilePath: ./java-backend/Dockerfile
+    startCommand: "bash /app/start.sh"
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://your-mysql-host:3306/project
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: root123
+      - key: EUREKA_URL
+        value: http://localhost:8761/eureka
+      - key: CLOUD_AWS_CREDENTIALS_ACCESSKEY
+        value: your_aws_key
+      - key: CLOUD_AWS_CREDENTIALS_SECRETKEY
+        value: your_aws_secret
+      - key: SPRING_MAIL_USERNAME
+        value: your_mailtrap_user
+      - key: SPRING_MAIL_PASSWORD
+        value: your_mailtrap_password
